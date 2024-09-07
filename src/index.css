@@ -33,3 +33,7 @@ progress::-moz-progress-bar {
   background-color: #ffffff; /* Tailwind's green-500 */
   border-radius: 9999px;
 }
+
+div::-webkit-scrollbar {
+  display: none;
+}
