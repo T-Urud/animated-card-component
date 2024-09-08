@@ -34,6 +34,21 @@ progress::-moz-progress-bar {
   border-radius: 9999px;
 }
 
+#blackProgress::-webkit-progress-bar {
+  background-color: #7b7b7b; /* Tailwind's gray-200 */
+  border-radius: 9999px; /* rounded-full */
+}
+#blackProgress::-webkit-progress-value {
+  background-color: #000; /* Tailwind's green-500 */
+  border-radius: 9999px;
+}
+
+#blackProgress::-moz-progress-bar {
+  background-color: #000; /* Tailwind's green-500 */
+  border-radius: 9999px;
+}
+
+
 div::-webkit-scrollbar {
   display: none;
 }
