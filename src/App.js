@@ -10,7 +10,7 @@ const variants = {
 };
 
 function App() {
-  const [isHover, setIsHover] = useState(true);
+  const [isHover, setIsHover] = useState(false);
 
   const [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
@@ -35,7 +35,11 @@ function App() {
       {error ? (
         <div>{error}</div>
       ) : villaData ? (
-        <div className="relative w-[250px] h-[350px] shadow-xl rounded-3xl">
+        <motion.div
+          className="relative w-[250px] h-[350px] shadow-xl rounded-3xl"
+          onHoverStart={() => setIsHover(true)}
+          onHoverEnd={() => setIsHover(false)}
+        >
           <img
             src={picture}
             alt=""
@@ -43,15 +47,16 @@ function App() {
           />
           <div className="w-full h-full absolute top-0">
             {isClicked ? (
-              <ClickComponent villaData={villaData} />
+              <ClickComponent villaData={villaData} isHover={isHover} />
             ) : (
               <motion.div
                 onClick={handleClick}
-                // variants={variants}
-                // animate={isClicked ? "clicked" : "notClicked"}
-                // transition={{ duration: 3 }}
                 initial={{ height: "37.6px", overflow: "hidden" }}
-                whileHover={{ height: "121.6px", overflow: "none" }}
+                animate={
+                  isHover
+                    ? { height: "121.6px", overflow: "none" }
+                    : { height: "37.6px", overflow: "hidden" }
+                }
                 transition={{ duration: 0.6 }}
                 className={
                   isClicked
@@ -102,7 +107,7 @@ function App() {
                       <motion.button
                         initial={{ x: "100px" }}
                         animate={{ x: 0 }}
-                        transition={{ duration: 1.7 }}
+                        transition={{ duration: 1.1 }}
                         className="text-white bg-gray-900 focus:outline-none font-thin rounded-lg text-xs p-2 dark:bg-gray-900"
                       >
                         Réserver
@@ -113,7 +118,7 @@ function App() {
               </motion.div>
             )}
           </div>
-        </div>
+        </motion.div>
       ) : (
         <div>Loading</div>
       )}
