@@ -60,8 +60,8 @@ function App() {
                 transition={{ duration: 0.6 }}
                 className={
                   isClicked
-                    ? "absolute bottom-0 py-2 px-2 rounded-2xl bg-transparent backdrop-blur-sm w-full h-full z-10 cursor-pointer"
-                    : "absolute bottom-0 translate-x-3 py-2 px-2 rounded-2xl bg-transparent backdrop-blur-sm mb-2 w-[90%] z-10 h-full cursor-pointer"
+                    ? "absolute bottom-0 left-1/2 transform -translate-x-1/2 py-2 px-2 rounded-2xl bg-transparent backdrop-blur-sm w-full h-full z-10 cursor-pointer"
+                    : "absolute bottom-0 left-1/2 transform -translate-x-1/2 py-2 px-2 rounded-2xl bg-transparent backdrop-blur-sm mb-2 w-[90%] z-10 h-full cursor-pointer"
                 }
               >
                 <div className="flex justify-between w-full z-20 mb-2">
